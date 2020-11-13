@@ -1,0 +1,660 @@
+
+<!DOCTYPE html>
+<html>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<style>
+	
+div.hsplit:after {
+content: "";
+clear: both;
+display: table;
+}
+
+div.hsplit > div {
+	float: left;
+}
+.border{
+	width: 130px;
+}
+.box_h {
+	border:solid black 1px; 
+	padding: 10px;
+	width: 21px;
+	height: 21px;
+	position: relative;
+	overflow: hidden;
+}
+
+.box {
+	border:solid black 1px; 
+	padding: 10px;
+	width: 21px;
+	height: 21px;
+	position: relative;
+	overflow: hidden;
+}
+
+.emoji{
+	border:solid black 1px;
+	height: 127px; width:127px;
+	text-align: center
+}
+.star{
+	font-size: 30px
+
+}
+.goti_style {
+  	text-shadow: 0 0 3px #000, 0 0 3px #000;
+  	position: relative;
+  	font-size: 35px;
+  	z-index: 4;
+	cursor: pointer;
+}
+
+.goti_style:hover {
+	z-index: 5;
+}
+
+.icon {
+	cursor: pointer;
+	height: 5px;
+}
+
+.box:hover > .icon {
+  height: 12px;
+}
+
+.box:hover {
+  overflow: initial;
+}
+
+.box_h:hover > .icon {
+  height: 16px;
+}
+
+.box_h:hover {
+  overflow: initial;
+}
+
+
+.star{
+	font-size: 33px;
+}
+.dice{
+	cursor: pointer;
+	font-size: 80px;
+	text-align: center;
+}
+
+.dice_rotation {
+	transform: rotate(0deg);
+	transition: 1s;
+}
+
+.dice_rotation:active {
+  transform: rotate(1000deg);
+}
+.button{
+	
+	border-radius: 3px;
+	background-color: #f8f9fa
+}
+
+/*.button:hover{
+	border:solid black 1px;
+}
+*/
+
+.aadmi {
+	border-radius: 50%;
+	border: solid white 10px;
+	height: 100px;
+	width: 100px;
+}
+
+.box_number, .debug {
+	display:none;
+}
+
+
+</style>
+<body ng-app="myApp" ng-controller="myCtrl">
+	<div class="hsplit" >
+		<div style="border:solid black 1px; width: 650px;" >
+			<div class="hsplit" >
+				<div class="hsplit" >
+					<div class="border" style="width: 260px; height:260px">
+						<div style="" class="hsplit">
+							<div class="emoji" ng-repeat="x in list_box1" ng-style="{'background-color': x.bgcolor}" >
+								<div class="box_number" style="position: relative;" >{{x.position}}g</div>
+								<div class="icon" style="padding:40px;" ng-repeat="i in goties" ng-if="x.position==i.position" ng-click="apply($index)"  ng-style="{'color':i.color}">
+									<span class="material-icons goti_style">
+									fiber_manual_record
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="border hsplit">
+					<div ng-repeat="y in list_total_yellow">
+						<div class=" box_h" ng-repeat="x in y" ng-style="{'background-color': x.bgcolor}" >
+							<div class="box_number" style="position: absolute;">{{x.position}}</div>
+							<div style="position: absolute;" >
+								<span class="material-icons star" ng-repeat="z in star" ng-if="x.position==z.star_position" ng-style="{'color':z.starcolor}">
+								star
+								</span>
+							</div>
+							<div class="icon" ng-repeat="i in goties" ng-if="x.position==i.position" ng-click="apply($index)"  ng-style="{'color':i.color}">
+								<span class="material-icons goti_style">
+								fiber_manual_record
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="border" style="width: 260px;">
+					<div style="" class="hsplit">
+						<div class="emoji" ng-repeat="x in list_box2" ng-style="{'background-color': x.bgcolor}">
+							<div class="box_number" style="position: relative;" >{{x.position}}t
+							</div>
+
+								<div style="padding:40px;"
+								 ng-repeat="i in goties" ng-if="x.position==i.position" ng-click="apply($index)"  ng-style="{'color':i.color}">
+									<span class="material-icons goti_style">
+									fiber_manual_record
+									</span>
+								</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="hsplit" >
+				<div>
+					<div>
+						<div class="hsplit" ng-repeat="y in list_total_green">
+							<div class="box" ng-repeat=" x in y" ng-style="{'background-color': x.bgcolor}">
+								<div class="box_number" style="position: absolute;">{{x.position}}</div>
+								<div style="position: absolute;" >
+									<span class="material-icons star" ng-repeat="z in star" ng-if="x.position==z.star_position" ng-style="{'color':z.starcolor}">
+									star
+									</span>
+								</div>
+								<div class="icon" style="text-align: center;" ng-repeat="i in goties" ng-if="x.position==i.position" ng-click="apply($index)"   ng-style="{'color':i.color}">
+									<span class="material-icons goti_style">
+									fiber_manual_record
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div style="width:132px; height:132px; ">
+					<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSANPoiTLnPrTVhHbxX2fs2LNaj87le7xosdQ&usqp=CAU" style="width:200px; height:150px; display: none;">
+					<img src="https://www.flaticon.com/svg/static/icons/svg/1694/1694313.svg" style="width: 130px; height: 130px;" >
+
+				</div>
+
+				<div class="hsplit" style="">
+					<div style="">
+						<div  class="hsplit" ng-repeat="y in list_total_blue">
+							<div class="box" ng-repeat="x in y" ng-style="{'background-color': x.bgcolor}">
+								<div class="box_number" style="position: absolute;">{{x.position}}</div>
+								<div style="position: absolute;" >
+									<span class="material-icons star" ng-repeat="z in star" ng-if="x.position==z.star_position" ng-style="{'color':z.starcolor}">
+									star
+									</span>
+								</div>
+								<div class="icon" ng-repeat="i in goties" ng-if="x.position==i.position"  ng-click="apply($index)"   ng-style="{'color':i.color}">
+									<span class="material-icons goti_style">
+									fiber_manual_record
+									</span>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="hsplit" >
+				<div class="border" style=" width: 260px; height: 230px">
+					<div style="" class="hsplit">
+						<div class="emoji" ng-repeat="x in list_box3" ng-style="{'background-color': x.bgcolor}">
+							<div class="box_number" style="position: relative;" >{{x.position}}h</div>
+
+							<div class="icon" style="padding:40px;" 
+							 ng-repeat="i in goties" ng-if="x.position==i.position" ng-click="apply($index)"  ng-style="{'color':i.color}">
+								<span class="material-icons goti_style">
+								fiber_manual_record
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="border hsplit">
+					<div ng-repeat="y in list_total_red">
+						<div class="box_h" ng-repeat="x in y" ng-style="{'background-color': x.bgcolor}">
+							<div class="box_number" style="position: absolute;">{{x.position}}</div>
+							<div style="position: absolute;" >
+								<span class="material-icons star" ng-repeat="z in star" ng-if="x.position==z.star_position" ng-style="{'color':z.starcolor}">
+								star
+								</span>
+							</div>
+							<div class="icon" ng-repeat="i in goties" ng-if="x.position==i.position"  ng-click="apply($index)"  ng-style="{'color':i.color}">
+								<span class="material-icons goti_style">
+								fiber_manual_record
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="border" style="width: 260px;">
+					<div style="" class="hsplit">
+						<div class="emoji" ng-repeat="x in list_box4" ng-style="{'background-color': x.bgcolor}">
+							<div class="box_number" style="position: relative;" >
+								{{x.position}}
+							</div>
+							<div class="icon" style="padding:40px;"
+							 ng-repeat="i in goties" ng-if="x.position==i.position" ng-click="apply($index)"  ng-style="{'color':i.color}">
+								<span class="material-icons goti_style">
+								fiber_manual_record
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div style="margin-left: 10px;" >
+			<div style="margin: 10px 0px; font-size: 20px; " >
+				Current Turn : <span ng-style='{"color": turn}' >{{turn}}</span>
+			</div>
+			<div style="width: 260px;">
+		  		<div class='hsplit' style=" text-align: center;" >
+			  		<div class='hsplit aadmi' ng-repeat="x in list_players"  ng-style="{'border-color': ( x == turn ? x: 'white')}">
+				  		<span class="material-icons" ng-style="{'color': x, 'font-size': '100px'}">
+							person
+						</span>
+					</div>
+		  		</div>
+			</div>
+			<div style="margin: 20px 0px; text-align: center;" >
+				<button ng-click='skip_turn()' >Skip Turn</button>
+			</div>
+			<div style="margin-top: 20px; margin-bottom: 40px;">
+  				<div  ng-click="dice()" ng-class="'dice ' + (y == 0 ? 'dice_rotation': '') " >
+					<img width='50' src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Dice-2-b.svg" ng-if="y==2">
+					<img width='50' src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Dice-3-b.svg" ng-if="y==3">
+					<img width='50' src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Dice-4-b.svg" ng-if="y==4">
+					<img width='50' src="https://upload.wikimedia.org/wikipedia/commons/0/08/Dice-5-b.svg" ng-if="y==5">
+					<img width='50' src="https://upload.wikimedia.org/wikipedia/commons/2/26/Dice-6-b.svg" ng-if="y==6">
+					<img width='50' src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Dice-1-b.svg" ng-if="y==1">
+					<img width='50' src="https://upload.wikimedia.org/wikipedia/commons/9/99/Dice-0.svg" ng-if="y==0">
+  				</div>
+  				<div style="text-align: center;">Dice</div>
+  			</div>
+		</div>
+		<div>
+			<button class="button" ng-click="players_function2()"> Restart For 2 players</button>
+			<button class="button" ng-click="players_function3()"> Restart For 3 players</button>
+			<button class="button" ng-click="players_function4()"> Restart For 4 players</button>
+			<div style="margin-top: 10px;" >
+				1. Dice roll krne ke liye, dice box pr click kro.
+				<br>
+				2. Agr koi bhi goti open ni hai to 'skip turn' pr click kro.
+				<br>
+				3. Agr 4 se kam players hai to 'restart for 2' ya 'restart for 3' pr click kro.
+				<br>
+				4. Goti chlne ke liye goti pr click kro.
+				<br>
+				5. Agr galat goti pr click kiya to alert ayega top par. Alert msg pdh lena.
+				<br>
+				<br>
+				<br>
+				<br>
+			</div>
+			<div class="debug" >
+				<p>Dice: <input type="number" ng-model="y"></p>
+				 <p>
+				 	Turn:
+					<select ng-model="turn">
+						<option ng-repeat="x in ['red','yellow','blue','green']">{{x}}</option>
+					</select>	
+				</p> 
+			</div>
+
+
+		</div>
+	</div>
+
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+	s = $scope
+	$scope.y = 0
+
+
+	joint=function(l1,l2){
+	 var l1
+	 var l2
+		for (i in l2){
+	  	 l1.push(l2[i])
+	  }
+	   return l1        
+	}
+
+	var double_range=function(x, y, inc,ppp) {
+		if (inc === undefined) {
+			return []
+		}
+		if (inc <= 0 && y > x) {
+			return []
+		}
+		if (inc >= 0 && y < x) {
+			return []
+		}
+		var l = []
+	   	var i = x
+	    while(i != y) {
+	    	l.push({position: i, "bgcolor" : ppp})
+	    	i += inc
+	    }
+	    return l
+	}
+
+	var get_random_number = function() {
+		return new Date().getTime()
+	}
+
+	$scope.dice=function() {
+		if ($scope.y == 0) {
+			$scope.y=1 + (get_random_number() % 6)
+		} else {
+			alert("Beta dice already chla hua hai. Dubara mt chlao. Agr koi goti open ni hai chlne ke liye, to 'skip turn' kro.")
+		}
+	}
+
+  	$scope.list_players=["red","green","yellow","blue"]
+
+	function restart() {
+		$scope.turn = $scope.list_players[0]
+		$scope.goties=[
+						{position: 95, "color": "yellow"},
+						{position: 96, "color": "yellow"},
+						{position: 97, "color": "yellow"},
+						{position: 98, "color": "yellow"},
+						{position: 99, "color": "blue"},
+						{position: 100, "color": "blue"},
+						{position: 101, "color": "blue"},
+						{position: 102, "color": "blue"},
+						{position: 103, "color": "red"},
+						{position: 104, "color": "red"},
+						{position: 105, "color": "red"},
+						{position: 106, "color": "red"},
+						{position: 91, "color": "green"},
+						{position: 92, "color": "green"},
+						{position: 93, "color": "green"},
+						{position: 94, "color": "green"},
+
+						// {position: 28, "color": "yellow"},
+						// {position: 28, "color": "yellow"},
+						// {position: 27, "color": "red"},
+
+						]
+
+	}
+
+	$scope.players_function2=function(){
+		$scope.list_players=["red", "green"]
+		restart()
+	}
+	$scope.players_function3=function(){
+		$scope.list_players=["red","green","yellow" ]
+		restart()
+	}
+
+	$scope.players_function4=function(){
+		$scope.list_players=["red","green","yellow","blue"]
+		restart()
+	}
+
+	var color_change=function(l,y){
+		var i=0;
+	    while( i<l.length){
+	    	 if (l[i]==y){
+	       	 	if (i == l.length-1){
+	         	 return l[0]
+	         	}
+	         	else{
+	         	 	y=l[i+1]
+	            return y    
+	        	}    
+	       }
+	       i+=1    
+	    }
+	}
+
+	$scope.skip_turn = function() {
+		$scope.turn = color_change($scope.list_players, $scope.turn)
+		$scope.y = 0
+	}
+
+	var box_ki_goti_list = function(goties, box_position) {
+	  var i=0
+	   var l=[]
+	    while (i < goties.length) {
+	       if (goties[i].position == box_position){
+	          l.push(i)
+	       }   
+	       i+=1
+	    }  
+	    return l
+	}
+
+	var khali_position_in_starting_box = function(goti_color) {
+		var starting_positions = outside[goti_color].box_position
+		for (var i in starting_positions) {
+			if (box_ki_goti_list($scope.goties, starting_positions[i]).length  == 0) {
+				return starting_positions[i]
+			}
+		}
+		return starting_positions[0]
+	}
+
+	var kato_goti = function(box_position, goti_index) {
+		var is_box_me_pdi_sari_goti_ki_list = box_ki_goti_list($scope.goties, box_position)
+		for (var q in is_box_me_pdi_sari_goti_ki_list) {
+			var index = is_box_me_pdi_sari_goti_ki_list[q]
+			if ($scope.goties[index].color != $scope.goties[goti_index].color) {
+				$scope.goties[index].position = khali_position_in_starting_box($scope.goties[index].color)
+			}
+		}
+	}
+
+	$scope.list_box1=double_range(91,95,1,"green")
+	$scope.list_box2= double_range(95,99,1,"yellow")
+	$scope.list_box3= double_range(99,103,1,"blue")
+	$scope.list_box4= double_range(103,107,1,"red")
+
+	$scope.list_yellow_small_div2=joint( 
+			[{position: 11, "bgcolor" : "white"}],
+			double_range(80,85,1, "yellow") )
+
+	double_range(12,18,1,"yellow")
+	$scope.list_yellow_small_div1= double_range(10,4,-1,"white")
+
+	$scope.list_yellow_small_div3=joint( 
+			joint( [{position: 12, "bgcolor" : "white"}],
+				[{position: 13, "bgcolor" : "yellow"}]),
+			double_range(14,18,1, "white") )
+
+	$scope.list_green_small_div1=joint( 
+			joint( [{position: 51, "bgcolor" : "white"}],
+				[{position: 0, "bgcolor" : "green"}]),
+			double_range(1,5,1, "white") )
+
+	$scope.list_green_small_div2= joint([{position: 50, "bgcolor" : "white"}],double_range(116,121,1,"green"))
+
+	$scope.list_green_small_div3= double_range(49,43,-1, "white")
+
+	$scope.list_blue_small_div1= double_range(18,24,1, "white")
+
+	$scope.list_blue_small_div2=joint(
+		double_range(89,84,-1, "red"),
+				[{position: 24, "bgcolor" : "white"}])
+
+	$scope.list_blue_small_div3=joint( 
+			double_range(30,26,-1, "white"),
+			joint( [{position: 26, "bgcolor" : "red"}],
+				[{position: 25, "bgcolor" : "white"}]), )
+
+	$scope.list_red_small_div1=joint( 
+			double_range(43,39,-1, "white"),
+			joint( [{position: 39, "bgcolor" : "blue"}],
+				[{position: 38, "bgcolor" : "white"}]), ) 
+
+	$scope.list_red_small_div2=joint( 
+			double_range(115,110,-1, "blue"),
+				[{position: 37, "bgcolor" : "white"}])
+
+
+	$scope.list_red_small_div3= double_range(31,37,1, "white")
+
+	$scope.list_total_green=[$scope.list_green_small_div1,$scope.list_green_small_div2,$scope.list_green_small_div3]
+
+	$scope.list_total_blue=[$scope.list_blue_small_div1,$scope.list_blue_small_div2,$scope.list_blue_small_div3]
+
+	$scope.list_total_yellow=[$scope.list_yellow_small_div1,$scope.list_yellow_small_div2,$scope.list_yellow_small_div3]
+
+	$scope.list_total_red=[$scope.list_red_small_div1, $scope.list_red_small_div2,$scope.list_red_small_div3]
+
+
+
+	$scope.star=[
+					{"star_position" : 0, "starcolor":"grey"},
+					{"star_position" : 47, "starcolor":"grey"},
+					{"star_position" : 13, "starcolor":"grey"},
+					{"star_position" : 8, "starcolor":"grey"},
+					{"star_position" : 34, "starcolor":"grey"},
+					{"star_position" : 39, "starcolor":"grey"},
+					{"star_position" : 26, "starcolor":"grey"},
+					{"star_position" : 21, "starcolor":"grey"}
+				]
+
+	var outside= {
+		"green":{
+			"starting": 0,
+			 "box_position":[91,92,93,94],
+			  "mid_point":50,
+			   "after_mid_point": 116,
+			   "mid_point_list":[116,117,118,119,120],
+			   "end_position":121 },
+		"yellow":{
+			"starting":13,
+			"box_position":[95,96,97,98],
+			 "mid_point":11,
+			  "after_mid_point": 80,
+			  "mid_point_list":[80,81,82,83,84],
+			 "end_position": 85},
+		"red":{
+			"starting": 26, 
+			 "box_position":[103,104,105,106], 
+			 "mid_point":24,
+			  "after_mid_point": 85,
+			  "mid_point_list":[85,86,87,88,89],
+			   "end_position":90
+			},
+		"blue":{
+			"starting": 39,
+			  "box_position":[99,100,101,102],
+			   "mid_point":37,
+			    "after_mid_point": 111,
+			    "mid_point_list":[111,112,113,114,115],
+			    "end_position":116
+			}
+	    }
+
+	var total_len=52
+
+	var position_search=function(list,goti_ki_position){
+		for (i in list){
+			if(list[i]==goti_ki_position){
+				return true
+			}	
+		}
+		return false
+	}
+	$scope.ll=[116,117,118,119]
+
+
+	$scope.apply=function(p){
+		console.log("Goti index = " + p)
+		console.log("Goti position Before = " + $scope.goties[p].position)
+		console.log("Turn = " + $scope.turn)
+		console.log("Dice Value = " + $scope.y)
+		console.log("Goti position mid_point = " + outside[$scope.turn].mid_point)
+		console.log("Goti position after mid_point = " + outside[$scope.turn].after_mid_point)
+
+		if ($scope.y == 0) {
+			alert("Dice roll kro pahle..")
+		}
+		else if($scope.goties[p].color==$scope.turn) {
+			if (position_search(outside[$scope.turn].box_position,$scope.goties[p].position)){
+					if($scope.y==6){
+						$scope.goties[p].position=outside[$scope.turn].starting
+					}
+					else{
+						alert("Goti start krne ke liye 6 chahiye.. Agr aur koi goti ni hai chlne ke liye, to skip turn kro.")
+						return
+					}
+			}
+			else{
+				if ($scope.y == 6 && $scope.goties[p].position == outside[$scope.turn].mid_point) {
+					$scope.goties[p].position =1000
+					alert("Waw")
+				}
+				else if($scope.goties[p].position+$scope.y > outside[$scope.turn].mid_point
+					&& $scope.goties[p].position <=outside[$scope.turn].mid_point){
+					$scope.goties[p].position=outside[$scope.turn].after_mid_point+$scope.y-(outside[$scope.turn].mid_point-$scope.goties[p].position +1)
+
+				}
+				else if(position_search(outside[$scope.turn].mid_point_list,$scope.goties[p].position)) {
+					if($scope.goties[p].position+$scope.y==outside[$scope.turn].end_position){
+						$scope.goties[p].position=1000
+						alert("Waw")
+					}
+					else if($scope.goties[p].position+$scope.y>outside[$scope.turn].end_position){
+						alert("kam lana tha")
+					}
+					else{
+						$scope.goties[p].position=($scope.goties[p].position+$scope.y)
+					}
+				}
+				else {
+					$scope.goties[p].position=($scope.goties[p].position+$scope.y)%total_len	
+
+				}	
+			}
+			kato_goti($scope.goties[p].position, p);
+			if ($scope.y != 6 && $scope.y != 0) {
+				$scope.turn = color_change($scope.list_players, $scope.turn)
+			}
+			$scope.y = 0
+		}
+		else {
+			alert("Abhi dusre aadmi ka turn hai..")
+		}
+		console.log("Goti position After = " + $scope.goties[p].position)
+	}
+
+	restart()
+
+
+});
+</script>
+</body>
+</html>

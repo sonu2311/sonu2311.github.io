@@ -966,9 +966,7 @@ div.hsplit > div {
   /*font-weight: 600;*/
   text-align: justify;text-justify: inter-word; 
   line-height:30px;  color: white; 
-  font-size:16px; 
-  
-  
+  font-size:16px;   
 }
 /*#00b4cc*/
 .text_div_content{
@@ -984,5 +982,6 @@ div.hsplit > div {
 
 .product_div:hover > .image_div_in_profile {
   opacity: 0.4;
+  transition: opacity 0.3s;
 }
 

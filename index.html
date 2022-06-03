@@ -1,233 +1,161 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Sonu Saini | Full Stack Web Developer | Python | SQL | AngularJS | HTML | CSS</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
-<link rel="stylesheet" href="main.css">
-<!-- <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet"> -->
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-<script src="main.js"></script>
+  <meta name="description" content="Freelancer from India" />
+  <meta
+    name="keywords"
+    content="Sonu Saini, Full-Stack Web Developer, Python, SQL, AngularJS, HTML, CSS, Software Engineer, Front End Web Developer, Responsive Front End, Backend Web Developer",
+  />
+  <meta name="author" content="Sonu Saini, Full-Stack Web Developer, Python, SQL, AngularJS, HTML, CSS, Software Engineer, Front End Web Developer, Responsive Front End, Backend Web Developer" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<style>
-</style>
+  <title>Sonu Saini | Full Stack Web Developer | Python | SQL | AngularJS | HTML | CSS | Software Engineer | Front End Web Developer | Responsive Front End Design | Backend Web Developer</title>
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+  <link rel="stylesheet" href="main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
 </head>
-<body  ng-controller="myCtrl" style="z-index: 1px;position: relative;" >
-<!-- <div style="background-color:#333; z-index:10px; opacity:0.9; position:absolute; top: 1px; height:100%; width:100%">bjbjjhbj</div>
- --><div class="head_div"  >
-  <div class="hsplit" style="">
-      <div class="" style=" font-size:30px; font-weight:700; padding:15px 22px; color:#333; letter-spacing:2px;">
-          <span style="color:#00bcd4;">SONU</span>
-          <span style="color:#333;">SAINI</span>
-      </div>
-      <div class="title" style="display: none;" >Fresh Mart</div>
-      <div id="home" class="hsplit navbar_tabs" style=" float: right; margin-right: 25px;">
-          <div class="show-md hide-xs show-sm"  >
-              <div class="heading_profile" style="">
-                <div style="" class="" ng-click="scroll('home')" >HOME</div>
+<body ng-app='myApp' ng-controller="myCtrl" style="z-index: 1px;position: relative;" >
+  <div class="head_div"  >
+    <div class="hsplit" style="">
+        <div class="" style=" font-size:30px; font-weight:700; padding:15px 22px; color:#333; letter-spacing:2px;">
+            <span style="color:#00bcd4;">SONU</span>
+            <span style="color:#333;">SAINI</span>
+        </div>
+        <div class="title" style="display: none;" >Fresh Mart</div>
+        <div id="home" class="hsplit navbar_tabs" style=" float: right; margin-right: 25px;">
+            <div class="show-md hide-xs show-sm"  >
+                <div class="heading_profile" style="">
+                  <div style="" class="" ng-click="scroll('home')" >HOME</div>
+                </div>
+            </div>
+            <div class="show-md hide-xs show-sm" >
+              <div class="heading_profile" ng-click="scroll('about')">ABOUT</div>
+            </div>
+            <div class="show-md hide-xs show-sm" >
+              <div class="heading_profile" ng-click="scroll('projects')">
+                PROJECTS
               </div>
-          </div>
-          <div class="show-md hide-xs show-sm" >
-            <div class="heading_profile" ng-click="scroll('about')">ABOUT</div>
-          </div>
-          <div class="show-md hide-xs show-sm" >
-            <div class="heading_profile" ng-click="scroll('projects')">
-              PROJECTS
             </div>
-          </div>
-          <div class="show-md hide-xs show-sm" >
-            <div class="heading_profile" ng-click="scroll('contact')">
-              CONTACT
+            <div class="show-md hide-xs show-sm" >
+              <div class="heading_profile" ng-click="scroll('contact')">
+                CONTACT
+              </div>
             </div>
-          </div>
-      </div>
-  </div>
-      <!-- <div class="show-md show-xs show-sm" style="" >
-            <div class="menu"  ng-click="menu_close_open()">
-                <span class="material-icons" style="font-weight: 600;" >more_vert</span>
-            </div>
-          </div> -->
+        </div>
+    </div>
   </div>
   <div style="height: 65px;" ></div>
-  <div style="color: #00bcd4; margin-bottom:30px; ">
-    <img src="image/homeprofile9.png" style="width:100%">
+  <div style="color: #00bcd4; height: min(35vw, 40vh); overflow-y: hidden;" class="vertical_centering_parent" >
+    <img src="images/homeprofile9.png" style="width:100%;" class="vertical_centering_child">
   </div>
-  <div id="about" class="hsplit" style="margin-top:20px; margin-bottom: 30px;" >
-    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="box-sizing:border-box;margin-top:40px;">
-      <div style="font-size: 35px;color:black; text-align:center;"><b>Sonu Saini</b></div>
-      <div style="font-size:15px; color:#00bcd4;letter-spacing:3px;margin-top: 14px;  font-weight: 700; text-align:center;">Full Stack Web Developer</div>
-      <div style="color: #333; text-align: center; word-spacing: 2px; font-size: 15px;padding:15px 30px; line-height: 30px; text-align: justify;text-justify: inter-word;" >
-        Hi, I’m Sonu Saini. I am a self employed full stack web developer. I've been working for more than a year now. I developed multiple end to end web platforms for several startups. I have a fair amount of experience in Database (SQL), Backend (Python), Front end (AngularJS, CSS, HTML) to own a web application end to end. However I'm still at the early stage of my career and I am looking forward to growing 5x in the coming years.
-      </div>
-      <div style="padding:1px 30px;font-size:22px;color: #00bcd4;">I developed following projects:</div>
-      <div style="padding:1px 30px;">
-        <ul>
-          <li style="color:#444; font-size: 15px; ">E-Commerce Platform For Connecting Farmers to the End Consumers.</li>
-          <li style="color:#444; font-size: 15px; padding-top: 15px ;">Tiffin Service Aggregato</li>
-          <li style="color:#444; font-size: 15px; padding-top: 15px ;"> A platform for listing real estate properties and connecting with sellers.</li>
-          <li style="color:#444; font-size: 15px;padding-top: 15px ;">Profile website for a jewelry businessman [ My First Client ]</li>
-          <li style="color:#444; font-size: 15px;padding-top: 15px ;">A social media platform [ Developed only for Experience ]</li>
-          <li style="color:#444; font-size: 15px;padding-top: 15px ;">An app for snake and ladders game [ Developed only for Experience ]</li>
-        </ul>
-      </div>
-    </div>
-    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="box-sizing:border-box;margin-top:25px;">
-      <div style="padding:20px;"> <img src="image/skill2.png" style="width:100%"></div>
-    </div>
-    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="box-sizing:border-box;margin-top:40px;"> 
-      <div>
-        <div style=" font-size: 23px;color:#333; text-align:left;letter-spacing:2px; font-weight:800;padding:1px 20px;">My Skills
+  <div style="display: none;" >
+    <div class="hide-sm" >XS</div>
+    <div class="show-sm hide-xs hide-md" >SM</div>
+    <div class="show-md hide-xs hide-lg" >MD</div>
+    <div class="show-lg hide-xs" >LG</div>
+  </div>
+  <div id="about" class="hsplit" style="margin-top:20px; margin-bottom: 30px; box-sizing: border-box;" >
+    <div class="col-xs-12 col-sm-6 col-md-5 col-lg-4 col-md-offset-1 col-lg-offset-1" style="box-sizing: border-box; " >
+      <div style="margin: 20px 20px;" >
+        <div style="font-size: 35px;color:black; text-align:left;"><b>Sonu Saini</b></div>
+        <div style="font-size:15px; color:#00bcd4;letter-spacing:3px;margin-top: 14px;  font-weight: 700; text-align:left;">Full Stack Web Developer</div>
+        <div style="color: #333; font-size: 15px; padding-top: 25px; line-height: 25px; text-align: justify;" >
+          Hi, I’m Sonu Saini. I am a self employed full stack web developer. I've been working for 2 year on multiple web application for several startups. I have a fair amount of experience in Front end (AngularJS, CSS, HTML, React), Database (SQL) and Backend (Python) to own a web application end to end. However I'm still at the early stage of my career and I am looking forward to growing myself in upcoming years.
         </div>
-        <div style="  text-align:left;letter-spacing:1px; padding:1px 20px;"> 
-          <p style="color: #00bcd4;font-size: 18px;font-weight:800;">Progrmming Langugauge and Frameworks</p>
-          <div style="color:black;font-weight:800;"> Fluent:</div>
-          <div style="">
-            <p>
-              <ul>
-                <li style="color:#444; font-size: 14px;">Angular JS</li>
-                <li style="color:#444; font-size: 14px; padding-top: 15px ;">Python</li>
-                <li style="color:#444; font-size: 14px; padding-top: 15px ;">SQL</li>
-                <li style="color:#444; font-size: 14px; padding-top: 15px ;">CSS</li>
-                <li style="color:#444; font-size: 14px;padding-top: 15px ;">HTML</li>
-                <li style="color:#444; font-size: 14px;padding-top: 15px ;">BOOTSRAP</li>
-              </ul>
-            </p>
-          </div>
-        </div>   
-      </div>    
-   </div>   
+        <div style="margin-top: 10px;" >
+          <div style="color: #00bcd4; font-size: 18px; margin: 6px 0px;" > My skills:</div>
+          <div style="color: #333;" >Python, AngularJs, React, SQL, HTML, CSS, Responsive Design, Bootstrap</div> 
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-5 col-lg-4 col-md-offset-1 col-lg-offset-2" style='height: 100%; box-sizing: border-box;' >
+      <div style="margin: 20px 20px;">
+        <img src="images/sonu_saini_profile.jpeg" style="width: min(80%, 50vw);">
+      </div>
+    </div>
   </div>
-  <div style=" background-color:#00bcd4;margin-top:70px;margin-bottom:70px; height:60px;"></div>
+
+  <div class="" style=" background-color:#00bcd4;margin-top:70px;margin-bottom:70px; height:60px;"></div>
   <div id="projects"  class="projects" style=""> 
       <span class="projects_span">Professional Projects</span>
   </div>
-  <div class="hsplit" style="margin-top: 30px;">
-    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 " style=" box-sizing: border-box;margin-top:50px;">
-      <div class="product_div " style="box-sizing: border-box;">
+  <div class="hsplit" style="margin-top: 30px; box-sizing: border-box;">
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4" style="margin-top: 20px;" ng-repeat='project in projects' >
+      <div class="product_div" style="">
         <div class="image_div_in_profile" style=" box-sizing: border-box;">
-          <img src="image/vegthem3%20(1).jpg" style="width:100%;" class="image_div_image">
-        </div>
-        <div class="text_div" style=" " >
-            <div class="text_div_content">
-            A platform where consumers can buy fresh vegetables directly from the farmers. Developed for a stealth mode startup in Jaipur.
-            </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 " style=" box-sizing: border-box;margin-top:50px;">
-      <div class="product_div " style="box-sizing: border-box;">
-        <div class="image_div_in_profile" style=" box-sizing: border-box;">
-          <img src="image/cookthem4.jpg" style="width:100%;" class="image_div_image">
+          <img ng-src="{{project.image}}" style="width: 100%;" class="image_div_image">
         </div>
         <div class="text_div" style="" >
-          <div class="text_div_content">
-            A platform similar to Swiggy/Zomato but differs in a few aspects like advance booking for each meal, scheduling future orders etc. Developed for a London (UK) based startup.
-            </div>
-        </div>
-      </div>
-    </div>
-
-
-    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 " style=" box-sizing: border-box;margin-top:50px;">
-      <div class="product_div " style="box-sizing: border-box;">
-        <div class="image_div_in_profile" style=" box-sizing: border-box;">
-          <img src="image/jewellthem4.jpg" style="width:100%;" class="image_div_image">
-        </div>
-        <div class="text_div" style="" >
-            <div class="text_div_content">
-             Profile website for a jewelry businessman. 
-            </div>
+          <div class="text_div_content">{{project.content}}</div>
         </div>
       </div>
     </div>
   </div>
-  <div class="hsplit" style="margin-top: 30px;">
-    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 " style=" box-sizing: border-box;margin-top:50px;">
-      <div class="product_div " style="box-sizing: border-box;">
-        <div class="image_div_in_profile" style=" box-sizing: border-box;">
-          <img src="image/instagramtinku.webp" style="width:100%;" class="image_div_image">
-        </div>
-        <div class="text_div" style=" " >
-            <div class="text_div_content">
-            A platform designed mainly for practice. This platform allows people to signup, add posts (in form of text and pictures), maintain their timeline, like and comment on other people’s posts, follow people, receive notifications, manage account and profile settings etc 
-            </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 " style=" box-sizing: border-box;margin-top:50px;">
-      <div class="product_div " style="box-sizing: border-box;">
-        <div class="image_div_in_profile" style=" box-sizing: border-box;">
-          <img src="image/snak1.jpg" style="width:100%;" class="image_div_image">
-        </div>
-        <div class="text_div" style="" >
-          <div class="text_div_content">
-            An app for snake and ladders game
-            </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 " style=" box-sizing: border-box;margin-top:50px;">
-      <div class="product_div " style="box-sizing: border-box;">
-        <div class="image_div_in_profile" style=" box-sizing: border-box;">
-          <img src="image/realpha1.webp">
-        </div>
-        <div class="text_div" style="" >
-            <div class="text_div_content">
-            This website belong to a property dealer. In this website dealer can upload all details of properties like property image, size, price, appartment type, near by landmark etc. And there is a other facility user can discurss about to properties on chat page.
-            </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div style=" background-color:#00bcd4;margin-top:70px;margin-bottom:70px; height:60px; z-index: 1px;"></div>
+  <div style=" background-color:#00bcd4;margin-top:70px;margin-bottom:70px; height:60px; z-index: 1px;" class="" ></div>
   <div id="contact"  class="projects" style="margin-bottom:80px;"> 
       <span class="projects_span">Contact</span>
   </div>
   <div class="hsplit" style="margin: 4px" >
-        <div class="col-sm-1 col-md-2 col-lg-3"></div>
-        <div class="col-xs-6 col-sm-5 col-md-4 col-lg-3" style="text-align: center;" >
-            <div class="contact_repeat_div" >
-                <div >
-                    <span class="material-icons profile_color" style="font-size: 30px; ">
-                    mail_outline
-                    </span>
-                </div>
-                <div class="contact_name">EMAIL</div>
-                <div style="padding:5px 0px;">
-                  sonu2311saini@gmail.com
-                </div>
+    <div class="col-sm-1 col-md-2 col-lg-3"></div>
+    <div class="col-xs-6 col-sm-5 col-md-4 col-lg-3" style="text-align: center;" >
+        <div class="contact_repeat_div" >
+            <div >
+                <span class="material-icons profile_color" style="font-size: 30px; ">
+                mail_outline
+                </span>
+            </div>
+            <div class="contact_name">EMAIL</div>
+            <div style="padding:5px 0px;">
+              sonu2311saini@gmail.com
             </div>
         </div>
-        <div class="col-xs-6 col-sm-5 col-md-4 col-lg-3" style="text-align: center;"  >
-            <div class="contact_repeat_div" >
-                <div >
-                    <span class="material-icons profile_color" style="font-size: 30px; ">
-                    graphic_eq
-                    </span>
-                </div>
-                <div class="contact_name">SOCIAL MEDIA</div>
-                <div> 
-                  <span class="material-icons profile_color">
-                  facebook
-                  </span>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-1 col-md-2 col-lg-3"></div>
     </div>
-
-  <div class="last_div">© 2022 Developed by Sonu Saini</div>
+    <div class="col-xs-6 col-sm-5 col-md-4 col-lg-3" style="text-align: center;"  >
+        <div class="contact_repeat_div" >
+            <div >
+                <span class="material-icons profile_color" style="font-size: 30px; ">
+                graphic_eq
+                </span>
+            </div>
+            <div class="contact_name">SOCIAL MEDIA</div>
+            <div> 
+              <span class="material-icons profile_color">
+              facebook
+              </span>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-1 col-md-2 col-lg-3"></div>
+  </div>
+  <div class="last_div">&copy; 2022 Developed by Sonu Saini</div>
 
 
 <script>
 var app = angular.module('myApp', [])
 app.controller('myCtrl', function($scope) {
 	s = $scope
-  $scope.scroll=function(x){
-        window.scrollTo(0, document.getElementById(x).offsetTop - 200)
-    }
+  $scope.scroll=function(x) {
+    window.scrollTo({top: document.getElementById(x).offsetTop - 200, behavior: 'smooth'})
+  }
+  $scope.projects = [
+    {image: "images/freshmart_main.jpg",
+     content: "E-Commerce Platform For Connecting Farmers to the End Consumers. A platform where consumers can buy fresh vegetables directly from the farmers. Developed for a stealth mode startup in Jaipur."},
+    {image: "images/foodmart_main.jpg",
+     content: "Tiffin Service Aggregator. A platform similar to Swiggy / Zomato but differs in a few aspects like advance booking for each meal, scheduling future orders etc. Developed for a London (UK) based startup."},
+    {image: "images/realpha_main_resized.jpg",
+     content: "A platform for listing real estate properties and connecting with sellers. This website belong to a property dealer. In this website dealer can upload all details of properties like property image, size, price, appartment type, near by landmark etc. And there is a other facility user can discurss about to properties on chat page."},
+    {image: "images/social_media_resized.jpg",
+     content: "A social media platform [ Developed only for Experience ]. A platform designed mainly for practice. This platform allows people to signup, add posts (in form of text and pictures), maintain their timeline, like and comment on other people’s posts, follow people, receive notifications, manage account and profile settings etc."},
+    {image: "images/jewelry_profile_resized.jpg",
+     content: "Profile website for a jewelry businessman. [ My First Client ]"},
+    {image: "images/snake_and_ladder_game_resized.jpg",
+     content: "Snake and ladders game. Single page HTML, CSS, JavaScript application. [ Developed only for Experience ]"},
+  ];
 
 });
 </script>

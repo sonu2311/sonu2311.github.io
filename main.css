@@ -900,7 +900,7 @@ div.hsplit > div {
     text-align: center;
     box-shadow: 0px 10px 20px #ddd;
     width: 210px;
-
+    margin-top: 20px;
 }
 
 .contact_name{
@@ -915,9 +915,10 @@ div.hsplit > div {
     margin-top: 70px;
     background-color:#222; 
     padding:33px 0px;
-    text-align:center; 
+    text-align:center;
     color:white;
     font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
 }
 
 .projects{
